@@ -1,0 +1,172 @@
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<link href="resources/css/calendar-blue.css" rel="stylesheet"
+	type="text/css" />
+<script src="resources/js/jquery.dynDateTime.min.js"
+	type="text/javascript"></script>
+<script src="resources/js/calendar-en.min.js" type="text/javascript"></script>
+
+<script>
+	$(document)
+			.ready(
+					function() {
+						// Code By 
+						// Shourav Sharif : 01711080718
+
+						// Default Hide and Lock
+						// alert("I'm Here");
+						hideAll();
+						disableAll();
+
+						var role_current = $('#id_role_current').val();
+						var role_done = $('#id_role_done').val();
+
+						//test data
+						//var role_current = 'ticket_creator';
+						//var role_done = 'ticket_creator';
+
+						// Listing and show Done Dept
+						// var arrayOfStrings = stringToSplit.split(separator);
+						var role_done_list = role_done.split(',');
+						for (i = 0; i < role_done_list.length; i++) {
+
+							var dept = role_done_list[i];
+							showDept(dept);
+						}
+
+						// show and enaable current dept
+						showDept(role_current);
+						enableDept(role_current);
+
+						function hideAll() {
+
+							$("#div_group_ticket_creator").hide();
+
+						}
+						// calender
+						$("#dt_bill_cycle").dynDateTime({
+							showsTime : true,
+							ifFormat : "%m/%d/%Y %H:%M",
+							daFormat : "%l;%M %p, %e %m,  %Y",
+							align : "BR",
+							electric : true,
+							singleClick : false,
+							displayArea : ".siblings('.dtcDisplayArea')",
+							button : ".next()"
+						});
+						function disableAll() {
+
+							// Ticket creator 
+							$("#div_group_ticket_creator").prop("disabled",
+									true);
+							$("#txt_problem_month").prop("disabled", true);
+							$("#dt_bill_cycle").prop("disabled", true);
+							$("#txt_alternative_contacts").prop("disabled",
+									true);
+						}
+
+						function showDept(dept) {
+
+							if (dept === "ticket_creator") {
+								$("#div_group_ticket_creator").show();
+								var d = new Date();
+								var month = d.getMonth() + 1;
+								var day = d.getDate();
+								var hour = d.getHours();
+								var minute = d.getMinutes();
+								var second = d.getSeconds();
+								var output = (('' + month).length < 2 ? '0' : '')
+										+ month + '/'
+										+ (('' + day).length < 2 ? '0' : '') + day
+										+ '/' + d.getFullYear() + ' '
+										+ (('' + hour).length < 2 ? '0' : '') + hour
+										+ ':' + (('' + minute).length < 2 ? '0' : '')
+										+ minute;
+								//alert(output);
+								$("#dt_bill_cycle").val(output);
+
+							}
+
+						}
+
+						function enableDept(dept) {
+
+							if (dept === "ticket_creator") {
+								$("#div_group_ticket_creator").prop("disabled",
+										false);
+
+								$("#txt_problem_month").prop("disabled", false);
+								$("#dt_bill_cycle").prop("disabled", false);
+								$("#txt_alternative_contacts").prop("disabled",
+										false);
+
+								//required  
+								$("#txt_problem_month").attr("required",
+										"required");
+								//$("#dt_bill_cycle").attr("required", "required");
+								$("#txt_alternative_contacts").attr("required",
+										"required");
+								
+								
+
+							}
+						}
+
+						//var getUrlParameter = function getUrlParameter(sParam) {
+						function getUrlParameter(sParam) {
+
+							alert("sParam : " + sParam);
+							var sPageURL = decodeURIComponent(window.location.search
+									.substring(1)), sURLVariables = sPageURL
+									.split('&'), sParameterName, i;
+
+							for (i = 0; i < sURLVariables.length; i++) {
+								sParameterName = sURLVariables[i].split('=');
+
+								if (sParameterName[0] === sParam) {
+									return sParameterName[1] === undefined ? true
+											: sParameterName[1];
+								}
+							}
+						}
+					});
+</script>
+
+<div id="div_group_ticket_creator">
+	<form>
+		<fieldset>
+			<legend>Ticket Creator</legend>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_problem_month">
+					<label class="col-md-4 control-label" for="txt_problem_month">Problem
+						Month(s)<font
+						size="5" color=red>*</font></label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d1"
+							id="txt_problem_month" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_dt_bill_cycle">
+					<label class="col-md-4 control-label" for="dt_bill_cycle">Bill
+						Cycle<font
+						size="5" color=red>*</font></label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d2"
+							id="dt_bill_cycle" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_alternative_contacts">
+					<label class="col-md-4 control-label"
+						for="txt_alternative_contacts">Alternative Contacts<font
+						size="5" color=red>*</font></label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d3"
+							id="txt_alternative_contacts" class="form-control" />
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

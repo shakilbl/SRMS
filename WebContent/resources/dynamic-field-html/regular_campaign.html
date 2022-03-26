@@ -1,0 +1,254 @@
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<link href="resources/css/calendar-blue.css" rel="stylesheet" type="text/css" />
+		<script src="resources/js/jquery.dynDateTime.min.js" type="text/javascript"></script>
+        <script src="resources/js/calendar-en.min.js" type="text/javascript"></script>
+
+<script>
+    $(document)
+            .ready(
+                    function() {
+                        // Code By 
+                        // Shourav Sharif : 01711080718
+
+                        // Default Hide and Lock
+                        // alert("I'm Here");
+                        hideAll();
+                        disableAll();
+                        var role_current = $('#id_role_current').val();
+                        var role_done = $('#id_role_done').val();
+                        
+                        //test data
+                      //  var role_current = 'pss';
+                        //var role_done = 'ticket_creator';
+                        
+                        // Listing and show Done Dept
+                        // var arrayOfStrings = stringToSplit.split(separator);
+                        var role_done_list = role_done.split(',');
+                        for (i = 0; i < role_done_list.length; i++) {
+
+                            var dept = role_done_list[i];
+                            showDept(dept);
+                        }
+
+                        // show and enaable current dept
+                        showDept(role_current);
+                        enableDept(role_current);
+                        function hideAll() {
+
+                            $("#div_group_ticket_creator").hide();
+                            $("#div_group_tcm_product").hide();
+                            $("#div_group_css_pss").hide();
+                        }
+                        // calender
+					    $("#dt_offer_date_time").dynDateTime({
+				            showsTime: true,
+				            ifFormat: "%m/%d/%Y %H:%M",
+				            daFormat: "%l;%M %p, %e %m,  %Y",
+				            align: "BR",
+				            electric: true,
+				            singleClick: false,
+				            displayArea: ".siblings('.dtcDisplayArea')",
+				            button: ".next()"
+				        });
+                        function disableAll() {
+
+                            // Ticket creator 
+                            $("#div_group_ticket_creator").prop("disabled", true);
+                            $("#dt_offer_date_time").prop("disabled", true);
+                            $("#dd_subscriber_status").prop("disabled", true);
+                            $("#txt_ussd").prop("disabled", true);
+                            $("#txt_micampaign_log").prop("disabled", true);
+                            //tcm_product
+                            $("#div_group_tcm_product").prop("disabled", true);
+                           // $("#dd_solution_type").prop("disabled", true);
+                            $("#dd_platform").prop("disabled", true);
+                            //css
+                            $("#div_group_css_pss").prop("disabled", true);
+                         //   $("#dd_solution_type_css").prop("disabled", true);
+                        }
+
+
+                        function showDept(dept) {
+
+                        	  if (dept === "vocm" || dept === "ticket_creator") {
+                                $("#div_group_ticket_creator").show();
+                            } else if (dept === "tcm_product") {
+                                $("#div_group_tcm_product").show();
+                            } else if (dept === "css" || dept === "pss" || dept === "in" || dept === "vaso" || dept === " accenture" || dept === " cbssp" || dept === "cp" || dept === "essp" || dept === "vasp" || dept === "core") {
+                                // CSS/PSS/IN/VASO/Accenture/CBSSP/CP/ESSP/VASP/Core                   
+                                $("#div_group_css_pss").show();
+                            }
+                        }
+                            
+                        function enableDept(dept) {
+
+                        	  if (dept === "vocm" || dept === "ticket_creator") {
+                                $("#div_group_ticket_creator").prop("disabled", false);
+                                $("#dt_offer_date_time").prop("disabled", false);
+                                $("#dd_subscriber_status").prop("disabled", false);
+                                $("#txt_ussd").prop("disabled", false);
+                                $("#txt_micampaign_log").prop("disabled", false);
+                                
+                                //required  
+                               // $("#dt_offer_date_time").attr("required", "required");
+                                $("#dd_subscriber_status").attr("required", "required");
+                                
+                                $("#txt_ussd").attr("required", "required");
+                                $("#txt_micampaign_log").attr("required", "required");
+                                
+                            }
+                            else if (dept === "tcm_product") {
+                                //tcm product
+                                $("#div_group_tcm_product").prop("disabled", false);
+                           //     $("#dd_solution_type").prop("disabled", false);
+                                $("#dd_platform").prop("disabled", false);
+                                
+                                //required  
+                              //  $("#dd_solution_type").attr("required", "required");
+                                $("#dd_platform").attr("required", "required");
+                                
+
+                            }
+                              else if (dept === "css" || dept === "pss" || dept === "in" || dept === "vaso" || dept === " accenture" || dept === " cbssp" || dept === "cp" || dept === "essp" || dept === "vasp" || dept === "core") {
+                                // CSS/PSS/IN/VASO/Accenture/CBSSP/CP/ESSP/VASP/Core
+                                $("#div_group_css_pss").prop("disabled", false);
+                          //      $("#dd_solution_type_css").prop("disabled", false);
+                                
+                                //required  
+                            //    $("#dd_solution_type_css").attr("required", "required");
+                            }
+                        }
+
+                        //var getUrlParameter = function getUrlParameter(sParam) {
+                        function getUrlParameter(sParam) {
+
+                            alert("sParam : " + sParam);
+                            var sPageURL = decodeURIComponent(window.location.search
+                                    .substring(1)), sURLVariables = sPageURL
+                                    .split('&'), sParameterName, i;
+                            for (i = 0; i < sURLVariables.length; i++) {
+                                sParameterName = sURLVariables[i].split('=');
+                                if (sParameterName[0] === sParam) {
+                                    return sParameterName[1] === undefined ? true
+                                            : sParameterName[1];
+                                }
+                            }
+                        }
+                    });
+</script>
+
+<div id="div_group_ticket_creator">
+    <form>
+        <fieldset>
+            <legend>Ticket Creator</legend>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dt_offer_date_time">
+                    <label class="col-md-4 control-label" for="dt_offer_date_time">Offer Opt-IN Date & Time<font
+						size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d1" id="dt_offer_date_time" class="form-control" />
+                    </div>
+                </div>
+                  <div class="col-md-6 form-group" id="div_dd_subscriber_status">
+                    <label class="col-md-4 control-label" for="dd_subscriber_status">Subscriber Eligibility Status<font
+						size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                          <select class="form-control" id="dd_subscriber_status" ng-model="one.ticketdynamicfield.d2">
+                           <option value="">Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 form-group" id="div_txt_ussd">
+                    <label class="col-md-4 control-label" for="txt_ussd"> USSD string Subs Dialed<font
+						size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d3" id="txt_ussd" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_micampaign_log">
+                    <label class="col-md-4 control-label" for="txt_micampaign_log">Mi-Campaign Log<font
+						size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d4" id="txt_micampaign_log" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div id="div_group_tcm_product">
+    <form>
+        <fieldset>
+            <legend>From TCM Product</legend>
+            <div class="row">
+<!--                 <div class="col-md-6 form-group" id="div_dd_solution_type"> -->
+<!--                     <label class="col-md-4 control-label" for="dd_solution_type">Solution Type*</label> -->
+<!--                     <div class="col-md-8"> -->
+<!--                         <select class="form-control" id="dd_solution_type" ng-model="one.ticketdynamicfield.d5"> -->
+<!--                             <option> </option> -->
+<!--                             <option>1</option> -->
+<!--                             <option>2</option> -->
+<!--                             <option>3</option> -->
+<!--                         </select> -->
+<!--                     </div> -->
+<!--                 </div> -->
+                <div class="col-md-6 form-group" id="div_dd_platform">
+                    <label class="col-md-4 control-label" for="dd_platform"> Platform<font
+						size="5" color=red>*</font> </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_platform" ng-model="one.ticketdynamicfield.d6">
+                           <option value="">Select</option>
+                            <option>SAP</option>
+                            <option>BSCS</option>
+                            <option>EMA</option>
+                            <option>SDP</option>
+                            <option>AIR</option>
+                            <option>SMSC</option>
+                            <option>ERS</option>
+                            <option>UPCC</option>
+                            <option>CCN</option>
+                            <option>Ecare</option>
+                            <option>EMM</option>
+                            <option>RNC</option>
+                            <option>HLR</option>
+                            <option>SGSN</option>
+                            <option>GGSN</option>
+                            <option>BSC</option>
+                            <option>NODB</option>
+                            <option>BTS</option>
+                            <option>Transmission</option>
+                            <option>MGW</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<!-- <div id="div_group_css_pss"> -->
+<!--     <form> -->
+<!--         <fieldset> -->
+<!--             <legend>From CSS/PSS/IN/VASO/Accenture/CBSSP/CP/ESSP/VASP/Core</legend> -->
+<!--             <div class="row"> -->
+<!--                 <div class="col-md-6 form-group" id="div_dd_solution_type_css"> -->
+<!--                     <label class="col-md-4 control-label" for="dd_solution_type_css">Solution Type*</label> -->
+<!--                     <div class="col-md-8"> -->
+<!--                         <select class="form-control" id="dd_solution_type_css" ng-model="one.ticketdynamicfield.d7"> -->
+<!--                             <option> </option> -->
+<!--                             <option>1</option> -->
+<!--                             <option>2</option> -->
+<!--                             <option>3</option> -->
+<!--                         </select> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </fieldset> -->
+<!--     </form> -->
+<!-- </div> -->

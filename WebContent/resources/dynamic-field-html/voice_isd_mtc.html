@@ -1,0 +1,576 @@
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<link href="resources/css/calendar-blue.css" rel="stylesheet"
+	type="text/css" />
+<script src="resources/js/jquery.dynDateTime.min.js"
+	type="text/javascript"></script>
+<script src="resources/js/calendar-en.min.js" type="text/javascript"></script>
+
+<script>
+	$(document)
+			.ready(
+					function() {
+						// Code By 
+						// Shourav Sharif : 01711080718
+
+						// Default Hide and Lock
+						// alert("I'm Here");
+						hideAll();
+						disableAll();
+						var role_current = $('#id_role_current').val();
+						var role_done = $('#id_role_done').val();
+
+						//test data
+						//var role_current = 'pss';
+						//var role_done = 'ticket_creator';
+
+						// Listing and show Done Dept
+						// var arrayOfStrings = stringToSplit.split(separator);
+						var role_done_list = role_done.split(',');
+						for (i = 0; i < role_done_list.length; i++) {
+
+							var dept = role_done_list[i];
+							showDept(dept);
+						}
+
+						// show and enaable current dept
+						showDept(role_current);
+						enableDept(role_current);
+						function hideAll() {
+
+							$("#div_group_ticket_creator").hide();
+							$("#div_group_vocm").hide();
+							$("#div_group_tcm_product").hide();
+							$("#div_group_css_pss").hide();
+						}
+
+						//calender
+						$("#dt_last_calling").dynDateTime({
+							showsTime : true,
+							ifFormat : "%m/%d/%Y %H:%M",
+							daFormat : "%l;%M %p, %e %m,  %Y",
+							align : "BR",
+							electric : true,
+							singleClick : false,
+							displayArea : ".siblings('.dtcDisplayArea')",
+							button : ".next()"
+						});
+
+						function disableAll() {
+
+							// Ticket creator 
+							$("#div_group_ticket_creator").prop("disabled",
+									true);
+							$("#txt_alternative_contact_number").prop(
+									"disabled", true);
+							$("#dd_calling_problem").prop("disabled", true);
+							$("#txt_b_party").prop("disabled", true);
+							$("#dt_last_calling").prop("disabled", true);
+
+							$("#dd_area_details").prop("disabled", true);
+							$("#dd_thana").prop("disabled", true);
+							$("#txt_subarea_village").prop("disabled", true);
+							$("#txt_road").prop("disabled", true);
+
+							$("#txt_house").prop("disabled", true);
+							$("#txt_area_details_tc").prop("disabled", true);
+							$("#txt_handest_model").prop("disabled", true);
+							$("#dd_handset_change").prop("disabled", true);
+
+							$("#dd_ms_purged").prop("disabled", true);
+							$("#dd_ts11").prop("disabled", true);
+							$("#txt_ocsi_value").prop("disabled", true);
+							$("#txt_odbic_status").prop("disabled", true);
+
+							$("#txt_odboc_status").prop("disabled", true);
+							$("#txt_prepaid_life_cycle").prop("disabled", true);
+							$("#txt_credit_limit").prop("disabled", true);
+							$("#txt_sdp_value").prop("disabled", true);
+							// vocm 
+							$("#dd_int_call").prop("disabled", true);
+							$("#txt_prompt").prop("disabled", true);
+							//tcm_product
+							$("#div_group_tcm_product").prop("disabled", true);
+							//  $("#dd_solution_type").prop("disabled", true);
+							$("#dd_platform").prop("disabled", true);
+							//css
+							$("#div_group_css_pss").prop("disabled", true);
+							//   $("#dd_solution_type_css").prop("disabled", true);
+						}
+
+						function showDept(dept) {
+
+							if (dept === "ticket_creator") {
+								$("#div_group_ticket_creator").show();
+							} else if (dept === "vocm") {
+								$("#div_group_vocm").show();
+							} else if (dept === "tcm_product") {
+								$("#div_group_tcm_product").show();
+							} else if (dept === "css" || dept === "pss"
+									|| dept === "in" || dept === "vaso"
+									|| dept === " accenture"
+									|| dept === " cbssp" || dept === "cp"
+									|| dept === "essp" || dept === "vasp"
+									|| dept === "core") {
+								// CSS/PSS/IN/VASO/Accenture/CBSSP/CP/ESSP/VASP/Core                   
+								$("#div_group_css_pss").show();
+							}
+						}
+
+						function enableDept(dept) {
+
+							if (dept === "vocm" || dept === "ticket_creator") {
+								$("#div_group_ticket_creator").prop("disabled",
+										false);
+								$("#txt_alternative_contact_number").prop(
+										"disabled", false);
+								$("#dd_calling_problem")
+										.prop("disabled", false);
+								$("#txt_b_party").prop("disabled", false);
+								$("#dt_last_calling").prop("disabled", false);
+								$("#dd_area_details").prop("disabled", false);
+								$("#dd_thana").prop("disabled", false);
+								$("#txt_subarea_village").prop("disabled",
+										false);
+								$("#txt_road").prop("disabled", false);
+								$("#txt_house").prop("disabled", false);
+								$("#txt_area_details_tc").prop("disabled",
+										false);
+
+								$("#txt_handest_model").prop("disabled", false);
+								$("#dd_handset_change").prop("disabled", false);
+								$("#dd_ms_purged").prop("disabled", false);
+								$("#dd_ts11").prop("disabled", false);
+								$("#txt_ocsi_value").prop("disabled", false);
+								$("#txt_odbic_status").prop("disabled", false);
+								$("#txt_odboc_status").prop("disabled", false);
+								$("#txt_prepaid_life_cycle").prop("disabled",
+										false);
+								$("#txt_credit_limit").prop("disabled", false);
+								$("#txt_sdp_value").prop("disabled", false);
+
+								//required
+								$("#txt_alternative_contact_number").attr(
+										"required", "required");
+								$("#dd_calling_problem").attr("required",
+										"required");
+								$("#txt_b_party").attr("required", "required");
+								//$("#dt_last_calling").attr("required", "required");
+								$("#dd_area_details").attr("required",
+										"required");
+								$("#txt_road").attr("required", "required");
+								$("#txt_house").attr("required", "required");
+								$("#txt_area_details_tc").attr("required",
+										"required");
+								$("#txt_handest_model").attr("required",
+										"required");
+								$("#dd_handset_change").attr("required",
+										"required");
+								$("#dd_ms_purged").attr("required", "required");
+								$("#dd_ts11").attr("required", "required");
+								$("#txt_subarea_village").attr("required",
+										"required");
+
+								$("#txt_ocsi_value").attr("required",
+										"required");
+								$("#txt_odbic_status").attr("required",
+										"required");
+								$("#txt_odboc_status").attr("required",
+										"required");
+								$("#txt_prepaid_life_cycle").attr("required",
+										"required");
+								$("#txt_credit_limit").attr("required",
+										"required");
+								$("#txt_sdp_value")
+										.attr("required", "required");
+							}
+							if (dept === "vocm") {
+								$("#dd_int_call").prop("disabled", false);
+								$("#txt_prompt").prop("disabled", false);
+
+								//required
+								$("#dd_int_call").attr("required", "required");
+								$("#txt_prompt").attr("required", "required");
+
+							} else if (dept === "tcm_product") {
+								//tcm product
+								$("#div_group_tcm_product").prop("disabled",
+										false);
+								//   $("#dd_solution_type").prop("disabled", false);
+								$("#dd_platform").prop("disabled", false);
+
+								//required
+								//   $("#dd_solution_type").attr("required", "required");
+								$("#dd_platform").attr("required", "required");
+
+							} else if (dept === "css" || dept === "pss"
+									|| dept === "in" || dept === "vaso"
+									|| dept === " accenture"
+									|| dept === " cbssp" || dept === "cp"
+									|| dept === "essp" || dept === "vasp"
+									|| dept === "core") {
+								// CSS/PSS/IN/VASO/Accenture/CBSSP/CP/ESSP/VASP/Core
+								$("#div_group_css_pss").prop("disabled", false);
+								//     $("#dd_solution_type_css").prop("disabled", false);
+
+								//required
+								//      $("#dd_solution_type_css").attr("required", "required");
+							}
+						}
+
+						//var getUrlParameter = function getUrlParameter(sParam) {
+						function getUrlParameter(sParam) {
+
+							alert("sParam : " + sParam);
+							var sPageURL = decodeURIComponent(window.location.search
+									.substring(1)), sURLVariables = sPageURL
+									.split('&'), sParameterName, i;
+							for (i = 0; i < sURLVariables.length; i++) {
+								sParameterName = sURLVariables[i].split('=');
+								if (sParameterName[0] === sParam) {
+									return sParameterName[1] === undefined ? true
+											: sParameterName[1];
+								}
+							}
+						}
+					});
+</script>
+
+<div id="div_group_ticket_creator">
+	<form>
+		<fieldset>
+			<legend>Ticket Creator</legend>
+			<div class="row">
+				<div class="col-md-6 form-group"
+					id="div_txt_alternative_contact_number">
+					<label class="col-md-4 control-label"
+						for="txt_alternative_contact_number">Alternative Contact
+						Number<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d1"
+							id="txt_alternative_contact_number" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_dd_calling_problem">
+					<label class="col-md-4 control-label" for="dd_calling_problem">Calling
+						Problem from all Numbers<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<select class="form-control" id="dd_calling_problem"
+							ng-model="one.ticketdynamicfield.d2">
+							<option value="">Select</option>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_b_party">
+					<label class="col-md-4 control-label" for="txt_b_party">Sample
+						B party number<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d3"
+							id="txt_b_party" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_dt_last_calling">
+					<label class="col-md-4 control-label" for="dt_last_calling">Last
+						Calling Date Time<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d4"
+							id="dt_last_calling" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_dd_area_details">
+					<label class="col-md-4 control-label" for="dd_area_details">Area
+						Details<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<select class="form-control" id="dd_area_details"
+							ng-model="one.ticketdynamicfield.d5">
+							<option value="">Select</option>
+							<option>Circle</option>
+							<option>Sub Circle</option>
+							<option>District</option>
+						</select>
+					</div>
+				</div>
+				<!--                 <div class="col-md-6 form-group" id="div_dd_thana"> -->
+				<!--                     <label class="col-md-4 control-label" for="dd_thana">Thana</label> -->
+				<!--                     <div class="col-md-8"> -->
+				<!--                         <select class="form-control" id="dd_thana" ng-model="one.ticketdynamicfield.d6"> -->
+				<!--                             <option> </option> -->
+				<!--                             <option>1</option> -->
+				<!--                             <option>2</option> -->
+				<!--                             <option>3</option> -->
+				<!--                         </select> -->
+				<!--                     </div> -->
+				<!--                 </div> -->
+				<div class="col-md-6 form-group" id="div_txt_road">
+					<label class="col-md-4 control-label" for="txt_road">Road
+						no.<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d8"
+							id="txt_road" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_subarea_village">
+					<label class="col-md-4 control-label" for="txt_subarea_village">Sub
+						Area/ Village<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d7"
+							id="txt_subarea_village" class="form-control" />
+					</div>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_house">
+					<label class="col-md-4 control-label" for="txt_house">House
+						No<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d9"
+							id="txt_house" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_txt_area_details_tc">
+					<label class="col-md-4 control-label" for="txt_area_details_tc">Area
+						Details<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d10"
+							id="txt_area_details_tc" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_handest_model">
+					<label class="col-md-4 control-label" for="txt_handest_model">Subscriber
+						Handest Model<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d11"
+							id="txt_handest_model" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_dd_handset_change">
+					<label class="col-md-4 control-label" for="dd_handset_change">Tried
+						by Handset Change<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<select class="form-control" id="dd_handset_change"
+							ng-model="one.ticketdynamicfield.d12">
+							<option value="">Select</option>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_dd_ms_purged">
+					<label class="col-md-4 control-label" for="dd_ms_purged">MS_Purged
+						for Non_GPRS<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<select class="form-control" id="dd_ms_purged"
+							ng-model="one.ticketdynamicfield.d13">
+							<option value="">Select</option>
+							<option>True</option>
+							<option>False</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_dd_ts11">
+					<label class="col-md-4 control-label" for="dd_ts11">TS11<font
+						size="5" color=red>*</font></label>
+					<div class="col-md-8">
+						<select class="form-control" id="dd_ts11"
+							ng-model="one.ticketdynamicfield.d14">
+							<option value="">Select</option>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_ocsi_value">
+					<label class="col-md-4 control-label" for="txt_ocsi_value">OCSI
+						Value<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d15"
+							id="txt_ocsi_value" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_txt_odbic_status">
+					<label class="col-md-4 control-label" for="txt_odbic_status">ODBIC
+						Status<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d16"
+							id="txt_odbic_status" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_odboc_status">
+					<label class="col-md-4 control-label" for="txt_odboc_status">ODBOC
+						Status<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d17"
+							id="txt_odboc_status" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_txt_prepaid_life_cycle">
+					<label class="col-md-4 control-label" for="txt_prepaid_life_cycle">Prepaid
+						lifecycle Status<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d18"
+							id="txt_prepaid_life_cycle" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_credit_limit">
+					<label class="col-md-4 control-label" for="txt_credit_limit">Available
+						Credit limit/ Main Account<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d19"
+							id="txt_credit_limit" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-6 form-group" id="div_txt_sdp_value">
+					<label class="col-md-4 control-label" for="txt_sdp_value">SDP
+						Value<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d20"
+							id="txt_sdp_value" class="form-control" />
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+<div id="div_group_vocm">
+	<form>
+		<fieldset>
+			<legend>From VOCM</legend>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_dd_int_call">
+					<label class="col-md-4 control-label" for="dd_int_call">Barring
+						of International Call Status<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<select class="form-control" id="dd_int_call"
+							ng-model="one.ticketdynamicfield.d21">
+							<option value="">Select</option>
+							<option>Active</option>
+							<option>Deactive</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group" id="div_txt_prompt">
+					<label class="col-md-4 control-label" for="txt_prompt">Prompt<font
+						size="5" color=red>*</font></label>
+					<div class="col-md-8">
+						<input type="text" ng-model="one.ticketdynamicfield.d22"
+							id="txt_prompt" class="form-control" />
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+<div id="div_group_tcm_product">
+	<form>
+		<fieldset>
+			<legend>From TCM Product</legend>
+			<div class="row">
+				<!--                 <div class="col-md-6 form-group" id="div_dd_solution_type"> -->
+				<!--                     <label class="col-md-4 control-label" for="dd_solution_type">Solution Type *</label> -->
+				<!--                     <div class="col-md-8"> -->
+				<!--                         <select class="form-control" id="dd_solution_type" ng-model="one.ticketdynamicfield.d23"> -->
+				<!--                             <option> </option> -->
+				<!--                             <option>1</option> -->
+				<!--                             <option>2</option> -->
+				<!--                             <option>3</option> -->
+				<!--                         </select> -->
+				<!--                     </div> -->
+				<!--                 </div> -->
+				<div class="col-md-6 form-group" id="div_dd_platform">
+					<label class="col-md-4 control-label" for="dd_platform">
+						Platform<font size="5" color=red>*</font>
+					</label>
+					<div class="col-md-8">
+						<select class="form-control" id="dd_platform"
+							ng-model="one.ticketdynamicfield.d24">
+							<option value="">Select</option>
+							<option>SAP</option>
+							<option>BSCS</option>
+							<option>EMA</option>
+							<option>SDP</option>
+							<option>AIR</option>
+							<option>SMSC</option>
+							<option>ERS</option>
+							<option>UPCC</option>
+							<option>CCN</option>
+							<option>Ecare</option>
+							<option>EMM</option>
+							<option>RNC</option>
+							<option>HLR</option>
+							<option>SGSN</option>
+							<option>GGSN</option>
+							<option>BSC</option>
+							<option>NODB</option>
+							<option>BTS</option>
+							<option>Transmission</option>
+							<option>MGW</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+<!-- <div id="div_group_css_pss"> -->
+<!--     <form> -->
+<!--         <fieldset> -->
+<!--             <legend>From CSS/PSS/IN/VASO/Accenture/CBSSP/CP/ESSP/VASP/Core</legend> -->
+<!--             <div class="row"> -->
+<!--                 <div class="col-md-6 form-group" id="div_dd_solution_type_css"> -->
+<!--                     <label class="col-md-4 control-label" for="dd_solution_type_css">Solution Type *</label> -->
+<!--                     <div class="col-md-8"> -->
+<!--                         <select class="form-control" id="dd_solution_type_css" ng-model="one.ticketdynamicfield.d25"> -->
+<!--                             <option> </option> -->
+<!--                             <option>1</option> -->
+<!--                             <option>2</option> -->
+<!--                             <option>3</option> -->
+<!--                         </select> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </fieldset> -->
+<!--     </form> -->
+<!-- </div> -->

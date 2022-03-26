@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="baseLayout" template="/template/baseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/template/header.jsp" />
+		<put-attribute name="menu" value="/template/menu.jsp" />
+		<put-attribute name="body" value="/template/body.jsp" />
+		<put-attribute name="footer" value="/template/footer.jsp" />
+	</definition>
+	
+	<definition name="index" extends="baseLayout">
+		<put-attribute name="title" value="HomePage" />
+		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+	</definition>
+	<definition name="UserCategory" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/UserCategory.jsp" />
+	</definition>
+	<definition name="User" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/User.jsp" />
+	</definition>
+	<definition name="UserGroup" extends="baseLayout">
+		<put-attribute name="title" value="UserGroup Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/UserGroup.jsp" />
+	</definition>
+	<definition name="UserGroupAccess" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/UserGroupAccess.jsp" />
+	</definition>
+	<definition name="UserGroupMap" extends="baseLayout">
+		<put-attribute name="title" value="UserGroupMap Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/UserGroupMap.jsp" />
+	</definition>
+	<definition name="UserBToB" extends="baseLayout">
+		<put-attribute name="title" value="UserGroupMap Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/UserBToB.jsp" />
+	</definition>
+
+
+	<definition name="SlaEndToEnd" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/SlaEndToEnd.jsp" />
+	</definition>
+
+	<definition name="SlaDivisionLevel" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/SlaDevisionLevel.jsp" />
+	</definition>
+
+	<definition name="SlaTaskLevel" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/SlaTaskLevel.jsp" />
+	</definition>
+
+
+	<definition name="SlaEndToENd" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/SlaEndToEnd.jsp" />
+	</definition>
+
+
+	<definition name="SlaDivisionLevel" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/SlaDevisionLevel.jsp" />
+	</definition>
+
+	<definition name="SlaTaskLevel" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/SlaTaskLevel.jsp" />
+	</definition>
+
+
+
+	<definition name="IssueSolutionCategory" extends="baseLayout">
+		<put-attribute name="title" value="IssueSolution Category Page" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/IssueSolutionCategory.jsp" />
+	</definition>
+	<definition name="IssueSolution" extends="baseLayout">
+		<put-attribute name="title" value="IssueSolution Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/IssueSolution.jsp" />
+	</definition>
+
+	<definition name="IssueSolutionCategoryMap" extends="baseLayout">
+		<put-attribute name="title" value="IssueSolutionCategoryMap Page" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/IssueSolutionCategoryMap.jsp" />
+	</definition>
+
+	<definition name="createVipNumber" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/createVipNumber.jsp" />
+	</definition>
+
+
+
+
+
+	<definition name="WorkFlowHeader" extends="baseLayout">
+		<put-attribute name="title" value="WorkFlow Header Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/WorkFlowHeader.jsp" />
+	</definition>
+
+	<definition name="userPage" extends="baseLayout">
+		<put-attribute name="title" value="VipNumber Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/createVipNumber.jsp" />
+	</definition>
+	<definition name="test" extends="baseLayout">
+		<put-attribute name="title" value="VipNumber Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/test.jsp" />
+	</definition>
+	<definition name="servicerequest" extends="baseLayout">
+		<put-attribute name="title" value="One To One" />
+		<put-attribute name="body" value="/WEB-INF/jsp/oneToOneLand.jsp" />
+	</definition>
+	<definition name="Holiday" extends="baseLayout">
+		<put-attribute name="title" value="Create Holiday List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Holiday.jsp" />
+	</definition>
+	<definition name="sms" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/sms.jsp" />
+	</definition>
+	<definition name="district" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/District.jsp" />
+	</definition>
+	<definition name="thana" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Thana.jsp" />
+	</definition>
+	<definition name="division" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Division.jsp" />
+	</definition>
+	<definition name="circle" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Circle.jsp" />
+	</definition>
+	<definition name="subcircle" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/SubCircle.jsp" />
+	</definition>
+
+
+	<definition name="wflineHome" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/WflineHome.jsp" />
+	</definition>
+
+
+
+
+
+	<definition name="WorkFlowHeader" extends="baseLayout">
+		<put-attribute name="title" value="WorkFlow Header Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/WorkFlowHeader.jsp" />
+	</definition>
+
+	<definition name="userPage" extends="baseLayout">
+		<put-attribute name="title" value="VipNumber Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/createVipNumber.jsp" />
+	</definition>
+	<definition name="test" extends="baseLayout">
+		<put-attribute name="title" value="VipNumber Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/test.jsp" />
+	</definition>
+	<definition name="servicerequest" extends="baseLayout">
+		<put-attribute name="title" value="One To One" />
+		<put-attribute name="body" value="/WEB-INF/jsp/oneToOneLand.jsp" />
+	</definition>
+	<definition name="Holiday" extends="baseLayout">
+		<put-attribute name="title" value="Create Holiday List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Holiday.jsp" />
+	</definition>
+	<definition name="sms" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/sms.jsp" />
+	</definition>
+	<definition name="district" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/District.jsp" />
+	</definition>
+	<definition name="thana" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Thana.jsp" />
+	</definition>
+	<definition name="division" extends="baseLayout">
+		<put-attribute name="title" value="Create SMS Template" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Division.jsp" />
+	</definition>
+
+
+	<definition name="landingpage" extends="baseLayout">
+		<put-attribute name="title" value="Complaints Management" />
+		<put-attribute name="body" value="/WEB-INF/jsp/landingpage.jsp" />
+	</definition>
+	<definition name="unauthorizedUser" extends="baseLayout">
+
+		<put-attribute name="title" value="Access Denied" />
+		<put-attribute name="body" value="/WEB-INF/jsp/unauthorizedUser.jsp" />
+	</definition>
+
+	<definition name="servicerequestdetails" extends="baseLayout">
+		<put-attribute name="title" value="ServiceRequestDetails Page" />
+		<put-attribute name="body"
+			value="/resources/oneToOnePages/TicketDetails.jsp" />
+	</definition>
+	<definition name="CircleWiseCompliantStatus" extends="baseLayout">
+		<put-attribute name="title" value="Compliant Issues" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/subCategoryReport.jsp" />
+	</definition>
+
+	<definition name="CircleComplaintSolutionStatus" extends="baseLayout">
+		<put-attribute name="title" value="Compliant Issues" />
+		<put-attribute name="h2" value="Sylhet Mymensingh Circle"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/circleCompliantSolutionStatus.jsp" />
+	</definition>
+	<definition name="OpenOrClosed" extends="baseLayout">
+		<put-attribute name="title" value="Compliant Issues" />
+		<put-attribute name="h2" value="Sylhet Mymensingh Circle"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/openOrClosed.jsp" />
+	</definition>
+
+	<definition name="YearlyCompliantStatus" extends="baseLayout">
+		<put-attribute name="title" value="Compliant Issues" />
+		<put-attribute name="h2" value="Sylhet Mymensingh Circle"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/yearlyCompliantStatus.jsp" />
+	</definition>
+	<definition name="ProductionReport" extends="baseLayout">
+		<put-attribute name="title" value="Production Report" />
+		<put-attribute name="h2" value="Sylhet Mymensingh Circle"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/productionReport.jsp" />
+	</definition>
+	<definition name="Resolution" extends="baseLayout">
+		<put-attribute name="title" value="Resolution Report" />
+		<put-attribute name="h2" value="Sylhet Mymensingh Circle"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/resolution.jsp" />
+	</definition>
+	<definition name="WeeklyComplaintStatus" extends="baseLayout">
+		<put-attribute name="title" value="Weekly Complain tStatus" />
+		<put-attribute name="h2" value="Sylhet Mymensingh Circle"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/weeklyComplaintStatus.jsp" />
+	</definition>
+	<definition name="SubCatNetCom" extends="baseLayout">
+		<put-attribute name="title" value="Weekly Complain tStatus" />
+		<put-attribute name="h2" value="Sylhet Mymensingh Circle"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/subCatNetComplaint.jsp" />
+	</definition>
+	<definition name="CircleWiseWeeklyComplaintStatus" extends="baseLayout">
+		<put-attribute name="title"
+			value="Circle Wise Weekly Complaint Status" />
+		<put-attribute name="h2"
+			value="Circle Wise Weekly Complaint Status"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/circleWiseWeeklyStatusReport.jsp" />
+	</definition>
+	<definition name="CircleWiseMonthlyComplain" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/circleWiseMonthlyComplaint.jsp" />
+	</definition>
+	<definition name="PendingSRStatus" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/dashboards/pendingSRStatus.jsp" />
+	</definition>
+	<definition name="TopTenDeviation" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/dashboards/topTenDeviation.jsp" />
+	</definition>
+	<definition name="TotalIncomingDistribution" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/dashboards/totalIncomingDistribution.jsp" />
+	</definition>
+	<definition name="MajorSevenThana" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/majorSevenThana.jsp" />
+	</definition>
+	<definition name="SectionwiseOpen" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/sectionwiseOpen.jsp" />
+	</definition>
+	<definition name="HighCategorywise" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/highCategorywise.jsp" />
+	</definition>
+	<definition name="TopTenComplaintTrend" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/dashboards/topTenComplaintTrend.jsp" />
+	</definition>
+
+	<definition name="TopTenSRTrend" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/dashboards/topTenSRTrend.jsp" />
+	</definition>
+	<definition name="WeeklyStatusReport" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/weeklyStatusReport.jsp" />
+	</definition>
+	<definition name="Holiday" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/Holiday.jsp" />
+	</definition>
+	<definition name="NewSiteBudgetConstraint" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/newSiteBudgetConstraint.jsp" />
+	</definition>
+	<definition name="WeeklyReportComplaintHit" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/WeeklyReportComplaintHit.jsp" />
+	</definition>
+
+	<definition name="ComplaintwiseE2ESLA" extends="baseLayout">
+		<put-attribute name="title" value="Circle Wise Monthly Complain" />
+		<put-attribute name="h2" value="Circle Wise Monthly Complain"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/reports/ComplaintwiseE2ESla.jsp" />
+	</definition>
+
+	<definition name="CustomerFeedBack" extends="baseLayout">
+		<put-attribute name="title" value="CustomerFeedBack" />
+		<put-attribute name="h2" value="CustomerFeedBack"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/Customer_FeedBack.jsp" />
+	</definition>
+
+	<definition name="TicketDetails_New" extends="baseLayout">
+		<put-attribute name="title" value="TicketDetails_New" />
+		<put-attribute name="h2" value="TicketDetails_New"></put-attribute>
+		<put-attribute name="body"
+			value="/resources/oneToOnePages/TicketDetails_New.jsp" />
+	</definition>
+            
+            
+<definition name="ROField" extends="baseLayout">
+            <put-attribute name="title" value="RO_Form" />
+            <put-attribute name="h2" value="RO_Form"></put-attribute>
+            <put-attribute name="body" value="/WEB-INF/jsp/RO_Form.jsp" />
+            </definition>       
+            
+            <definition name="Phase2sla" extends="baseLayout">
+            <put-attribute name="title" value="Phase2sla" />
+            <put-attribute name="h2" value="Phase2sla"></put-attribute>
+            <put-attribute name="body" value="/WEB-INF/jsp/Phase2sla.jsp" />
+            </definition>            
+
+<definition name="TicketCreation2" extends="baseLayout">
+		<put-attribute name="title" value="TicketCreation2" />
+		<put-attribute name="h2" value="TicketCreation2"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/TicketCreation2.jsp" />
+	</definition>	
+
+	<definition name="BulkTicketCreation" extends="baseLayout">
+		<put-attribute name="title" value="BulkTicketCreation" />
+		<put-attribute name="h2" value="BulkTicketCreation"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/BulkTicketCreation.jsp" />
+	</definition>	
+            <definition name="Site" extends="baseLayout">
+              <put-attribute name="title" value="Site" />
+              <put-attribute name="h2" value="Site"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/Site.jsp" />
+
+       </definition>
+
+       <definition name="BusinessProcess" extends="baseLayout">
+              <put-attribute name="title" value="BusinessProcess" />
+              <put-attribute name="h2" value="BusinessProcess"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/BusinessProcess.jsp" />
+
+       </definition>
+
+       <definition name="UserGroupBusinessProcessMap" extends="baseLayout">
+              <put-attribute name="title" value="UserGroupBusinessProcessMap" />
+              <put-attribute name="h2" value="UserGroupBusinessProcessMap"></put-attribute>
+              <put-attribute name="body"
+                     value="/WEB-INF/jsp/UserGroupBusinessProcessMap.jsp" />
+
+       </definition>
+       <definition name="IssueSolutionCategoryFieldMap" extends="baseLayout">
+              <put-attribute name="title" value="IssueSolutionCategoryFieldMap" />
+              <put-attribute name="h2" value="IssueSolutionCategoryFieldMap"></put-attribute>
+              <put-attribute name="body"
+                     value="/WEB-INF/jsp/IssueSolutionCategoryFieldMap.jsp" />
+
+       </definition>
+              <definition name="Phase2sla" extends="baseLayout">
+              <put-attribute name="title" value="Phase2sla" />
+              <put-attribute name="h2" value="Phase2sla"></put-attribute>
+              <put-attribute name="body"
+                     value="/WEB-INF/jsp/sawe2etasksla.jsp" />
+
+       </definition>
+       <definition name="Search" extends="baseLayout">
+              <put-attribute name="title" value="Search" />
+              <put-attribute name="h2" value="Search"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/Search.jsp" />
+       </definition>
+
+<definition name="SOCTatOpen" extends="baseLayout">
+              <put-attribute name="title" value="SOCTatOpen" />
+              <put-attribute name="h2" value="SOCTatOpen"></put-attribute>
+              <put-attribute name="body"
+                     value="/WEB-INF/jsp/reports/SOCTatOpen.jsp" />
+       </definition>
+       <definition name="SOCDeptWiseSla" extends="baseLayout">
+              <put-attribute name="title" value="SOCDeptWiseSla" />
+              <put-attribute name="h2" value="SOCDeptWiseSla"></put-attribute>
+              <put-attribute name="body"
+                     value="/WEB-INF/jsp/reports/SOCDeptWiseSla.jsp" />
+
+
+       </definition>
+       <definition name="SOCE2E" extends="baseLayout">
+              <put-attribute name="title" value="SOCE2E" />
+              <put-attribute name="h2" value="SOCE2E"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/reports/SOCE2E.jsp" />
+
+
+       </definition>
+
+       <definition name="SOC" extends="baseLayout">
+              <put-attribute name="title" value="SOC" />
+              <put-attribute name="h2" value="SOC"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/reports/SOC.jsp" />
+
+
+
+       </definition>
+       <definition name="SOCGroupWiseSla" extends="baseLayout">
+              <put-attribute name="title" value="SOCGroupWiseSla" />
+              <put-attribute name="h2" value="SOCGroupWiseSla"></put-attribute>
+              <put-attribute name="body"
+                     value="/WEB-INF/jsp/reports/SOCGroupWiseSla.jsp" />
+
+
+
+       </definition>
+		<definition name="SOCGroupSLaMonthlyWeekly" extends="baseLayout">
+              <put-attribute name="title" value="SOCGroupSLaMonthlyWeekly" />
+              <put-attribute name="h2" value="SOCGroupSLaMonthlyWeekly"></put-attribute>
+              <put-attribute name="body"
+                     value="/WEB-INF/jsp/reports/SOCGroupSLaMonthlyWeekly.jsp" />
+       </definition>
+       
+       <!-- s_ahmed  -->
+		<definition name="DSReport" extends="baseLayout">
+              <put-attribute name="title" value="DSReport" />
+              <put-attribute name="h2" value="DSReport"></put-attribute>
+              <put-attribute name="body"
+                     value="/WEB-INF/jsp/reports/DSReport.jsp" />
+       </definition>       
+
+	   <!-- Added By Reazul -->
+       <definition name="TicketDetailsSAW" extends="baseLayout">
+              <put-attribute name="title" value="TicketDetailsSAW" />
+              <put-attribute name="h2" value="TicketDetailsSAW"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/TicketDetailsSAW.jsp" />
+       </definition>
+              <definition name="DownloadAttachment" extends="baseLayout">
+              <put-attribute name="title" value="DownloadAttachment" />
+              <put-attribute name="h2" value="DownloadAttachment"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/DownloadAttachment.jsp" />
+       </definition>
+       <!-- For DS Ticket Creation -->
+       <definition name="DSTicketCreation" extends="baseLayout">
+              <put-attribute name="title" value="DSTicketCreation" />
+              <put-attribute name="h2" value="DSTicketCreation"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/dSTicketCreation.jsp" />
+       </definition>
+       
+       <!-- For DS Ticket Details -->
+       <definition name="DSTicketDetails" extends="baseLayout">
+              <put-attribute name="title" value="DSTicketDetails" />
+              <put-attribute name="h2" value="DSTicketDetails"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/dSTicketDetails.jsp" />
+       </definition>
+       
+       <definition name="DSTicketDetailsView" extends="baseLayout">
+              <put-attribute name="title" value="DSTicketDetailsView" />
+              <put-attribute name="h2" value="DSTicketDetailsView"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/dSTicketDetailsView.jsp" />
+       </definition>
+       
+       
+       <definition name="CollectionMode" extends="baseLayout">
+              <put-attribute name="title" value="CollectionMode" />
+              <put-attribute name="h2" value="CollectionMode"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/collectionMode.jsp" />
+       </definition>
+        <definition name="BankNames" extends="baseLayout">
+              <put-attribute name="title" value="BankName" />
+              <put-attribute name="h2" value="BankName"></put-attribute>
+              <put-attribute name="body" value="/WEB-INF/jsp/DS_BankName.jsp" />
+       </definition>
+       
+</tiles-definitions>
+
+

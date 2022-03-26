@@ -1,0 +1,1054 @@
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+    $(document)
+            .ready(
+                    function() {
+                        // Code By 
+                        // Shourav Sharif : 01711080718
+
+                        // Default Hide and Lock
+                        // alert("I'm Here");
+                        hideAll();
+                        disableAll();
+
+
+                        //Java
+                        //session.setAttribute("metricValues", metricDataList);   // you state session
+
+                        //JSP
+                        //<input id='mv' type='hidden' value='${sessionScope.metricValues}'/>  // you state session variable
+                        //<input id='id_role_current' type='hidden' value='ro'/>
+                        //<input id='id_role_done' type='hidden' value='rp'/>
+
+                        //JS
+
+                        //$(document).ready(function(){
+                        //    var mv = $('#mv').val ();
+
+
+                        // For Normal Variable
+                        // Set the session variable * *
+                        //var current = 'vocm';
+                        //localStorage.setItem('role_current', current);
+
+                        //ticket_creator,vocm,tcm_product,rp,ro
+
+                        //var done = 'ticket_creator,tcm_product,rp,ro';
+                        //localStorage.setItem('role_done', done);
+
+                        //var name = localStorage.getItem("windowsloginid");
+                        //var name = 'sssssss';
+                        //var name = localStorage.getItem("windowsloginid");
+                        //var name = '<%= session.getAttribute("windowsloginid") %>';
+                        //var name = session.getAttribute("windowsloginid");
+
+                        //var name = "<%= windowsloginid %>" ;
+                        //var name = "#{sessionScope['windowsloginid']}";
+
+                        var role_current = $('#id_role_current').val();
+                        var role_done = $('#id_role_done').val();
+
+                        //test data
+                        var role_current = 'deployment';
+                        var role_done = 'ticket_creator,vocm';
+
+
+                        // from page url parameter
+                        //var role_current = 'vocm';
+                        //var role_current = getUrlParameter('role_current');
+                        //var role_done = 'tcm_product,rp,ro';
+                        //var role_done = getUrlParameter('role_done');
+
+                        //document.writeln("name : "+name);
+
+                        //* * Get the Session variable * *
+                        //var role_current = localStorage.getItem('windowsloginid');
+
+                        //document.writeln("role_current : "+role_current);
+                        //alert("role_current : " + role_current);
+                        //console.log(role_current);
+
+                        //var role_done = localStorage.getItem('windowsloginid');
+
+                        //document.writeln("role_done : "+role_done);
+                        //alert("role_done : " + role_done);
+                        //console.log(role_done)
+
+                        //var name = httpSession.getAttribute("windowsloginid").toString();
+
+                        //document.writeln("name : "+name);
+
+                        // For Angular JS Session
+                        //var role_current = $sessionScope.usertype; // Need to modify
+                        //var role_done = $sessionScope.usertype; // Need to check
+
+                        // For Java Session
+
+                        // Listing and show Done Dept
+                        // var arrayOfStrings = stringToSplit.split(separator);
+                        var role_done_list = role_done.split(',');
+                        for (i = 0; i < role_done_list.length; i++) {
+
+                            var dept = role_done_list[i];
+                            showDept(dept);
+                        }
+
+                        // show and enaable current dept
+                        showDept(role_current);
+                        enableDept(role_current);
+
+                        function hideAll() {
+
+                            $("#div_group_ticket_creator").hide();
+                            $("#div_group_vocm").hide();
+                            $("#div_group_tcm_product").hide();
+                            $("#div_group_rp").hide();
+                            $("#div_group_ro").hide();
+                            $("#div_group_deployment").hide();
+                            $("#div_group_regional_transformation").hide();
+                        }
+
+                        function disableAll() {
+
+                            // Ticket creator
+                            $("#div_group_ticket_creator").prop("disabled",
+                                    true);
+                            $("#txt_customer_name").prop("disabled", true);
+                            $("#txt_customer_mobile_number").prop("disabled",
+                                    true);
+                            $("#dd_employee_reference").prop("disabled", true);
+                            $("#txt_employee_name").prop("disabled", true);
+                            $("#txt_employee_designation").prop("disabled",
+                                    true);
+                            $("#txt_company_name").prop("disabled", true);
+                            $("#txt_customer_contact_number").prop("disabled",
+                                    true);
+                            $("#txt_alternative_contact_number").prop(
+                                    "disabled", true);
+                            $("#dd_product").prop("disabled", true);
+                            $("#txt_sudden_problem_regular_issue").prop(
+                                    "disabled", true);
+                            $("#txt_problem_start_date").prop("disabled", true);
+                            $("#txt_dd_circle").prop("disabled", true);
+                            $("#dd_sub_circle").prop("disabled", true);
+                            $("#dd_district").prop("disabled", true);
+                            $("#dd_thana").prop("disabled", true);
+                            $("#dd_sub_area_village").prop("disabled", true);
+                            $("#txt_road_no").prop("disabled", true);
+                            $("#txt_house_no").prop("disabled", true);
+                            $("#txt_area_detail").prop("disabled", true);
+                            $("#dd_subscribers_requirement").prop("disabled",
+                                    true);
+                            $("#dd_problem_location").prop("disabled", true);
+                            $("#txt_subscriber_handset_model").prop("disabled",
+                                    true);
+                            $("#txt_web_site_name").prop("disabled", true);
+                            $("#dd_handset_modem_coverage_bar").prop(
+                                    "disabled", true);
+
+                            //vocm
+                            $("#div_group_vocm").prop("disabled", true);
+                            $("#txt_total_number_of_problematic_floor").prop(
+                                    "disabled", true);
+                            $("#txt_problematic_floor_number").prop("disabled",
+                                    true);
+                            $("#txt_each_floor_size").prop("disabled", true);
+                            $("#txt_number_of_subscriber_in_problematic_area")
+                                    .prop("disabled", true);
+                            $("#txt_msisdn_of_subscribers_in_problematic_area")
+                                    .prop("disabled", true);
+                            $(
+                                    "#txt_three_months_average_usage_for_each_subscriber")
+                                    .prop("disabled", true);
+                            $(
+                                    "#txt_loyalty_status_for_the_subscribers_as_per_crm")
+                                    .prop("disabled", true);
+                            $("#txt_monthly_yearly_revenue_information").prop(
+                                    "disabled", true);
+                            $("#txt_serving_cell_name").prop("disabled", true);
+                            $("#txt_average_cell_level_throughput").prop(
+                                    "disabled", true);
+                            $("#txt_individual_average_throughput").prop(
+                                    "disabled", true);
+                            $("#txt_current_package_name").prop("disabled",
+                                    true);
+                            $("#txt_apn_names_as_per_hlr").prop("disabled",
+                                    true);
+
+                            //tcm_product
+                            $("#div_group_tcm_product").prop("disabled", true);
+                            $("#txt_solution_type").prop("disabled", true);
+                            $("#txt_problem_component_tcm").prop("disabled",
+                                    true);
+                            $("#txt_task_responsibility_tcm").prop("disabled",
+                                    true);
+                            $("#txt_platform").prop("disabled", true);
+                            $("#txt_average_cell_level_throughput_tcm").prop(
+                                    "disabled", true);
+                            $("#txt_individual_average_throughput_tcm").prop(
+                                    "disabled", true);
+
+                            //rp
+                            $("#div_group_rp").prop("disabled", true);
+                            $("#dd_rp_feedback").prop("disabled", true);
+                            $("#txt_RFS_WR_name").prop("disabled", true);
+                            $("#txt_problem_component_rp").prop("disabled",
+                                    true);
+                            $("#txt_solution_type_rp").prop("disabled", true);
+                            $("#txt_task_responsibility_rp").prop("disabled",
+                                    true);
+
+                            //ro
+                            $("#div_group_ro").prop("disabled", true);
+                            $("#dd_status_ro").prop("disabled", true);
+                            $("#txt_task_responsibility_ro").prop("disabled",
+                                    true);
+                            $("#txt_problem_component_ro").prop("disabled",
+                                    true);
+
+                            //deployment
+                            $("#div_group_deployment").prop("disabled", true);
+                            $("#txt_sub_task_assignment_dpm").prop("disabled",
+                                    true);
+                            $("#dd_status_dpm").prop("disabled", true);
+                            $("#txt_task_responsibility_dpm").prop("disabled",
+                                    true);
+
+                            //regional_transformation
+                            $("#div_group_regional_transformation").prop(
+                                    "disabled", true);
+                            $("#dd_sub_tasks_ssignment_rt").prop("disabled",
+                                    true);
+                            $("#txt_task_responsibility_rt").prop("disabled",
+                                    true);
+                        }
+
+                        function showDept(dept) {
+
+                            if (dept === "ticket_creator") {
+                                $("#div_group_ticket_creator").show();
+                            } else if (dept === "vocm") {
+                                $("#div_group_vocm").show();
+                            } else if (dept === "tcm_product") {
+                                $("#div_group_tcm_product").show();
+                            } else if (dept === "rp") {
+                                $("#div_group_rp").show();
+                            } else if (dept === "ro") {
+                                $("#div_group_ro").show();
+                            } else if (dept === "deployment") {
+                                $("#div_group_deployment").show();
+                            } else if (dept === "regional_transformation") {
+                                $("#div_group_regional_transformation").show();
+                            }
+                        }
+
+                        function enableDept(dept) {
+
+                            // for VOCM role, ticket_creator role will be enable and shown
+
+                            if (dept === "vocm" || dept === "ticket_creator") {
+                                $("#div_group_ticket_creator").prop("disabled",
+                                        false);
+                                $("#txt_customer_mobile_number").prop(
+                                        "disabled", false);
+                                $("#dd_employee_reference").prop("disabled",
+                                        false);
+                                $("#txt_employee_name").prop("disabled", false);
+                                $("#txt_employee_designation").prop("disabled",
+                                        false);
+                                $("#txt_company_name").prop("disabled", false);
+                                $("#txt_customer_contact_number").prop(
+                                        "disabled", false);
+                                $("#txt_alternative_contact_number").prop(
+                                        "disabled", false);
+                                $("#dd_product").prop("disabled", false);
+                                $("#txt_sudden_problem_regular_issue").prop(
+                                        "disabled", false);
+                                $("#txt_problem_start_date").prop("disabled",
+                                        false);
+                                $("#txt_dd_circle").prop("disabled", false);
+                                $("#dd_sub_circle").prop("disabled", false);
+                                $("#dd_district").prop("disabled", false);
+                                $("#dd_thana").prop("disabled", false);
+                                $("#dd_sub_area_village").prop("disabled",
+                                        false);
+                                $("#txt_road_no").prop("disabled", false);
+                                $("#txt_house_no").prop("disabled", false);
+                                $("#txt_area_detail").prop("disabled", false);
+                                $("#dd_subscribers_requirement").prop(
+                                        "disabled", false);
+                                $("#dd_problem_location").prop("disabled",
+                                        false);
+                                $("#txt_subscriber_handset_model").prop(
+                                        "disabled", false);
+                                $("#txt_web_site_name").prop("disabled", false);
+                                $("#dd_handset_modem_coverage_bar").prop(
+                                        "disabled", false);
+
+                            }
+                            if (dept === "vocm") {
+                                $("#div_group_vocm").prop("disabled", false);
+                                $("#txt_total_number_of_problematic_floor")
+                                        .prop("disabled", false);
+                                $("#txt_problematic_floor_number").prop(
+                                        "disabled", false);
+                                $("#txt_each_floor_size").prop("disabled",
+                                        false);
+                                $(
+                                        "#txt_number_of_subscriber_in_problematic_area")
+                                        .prop("disabled", false);
+                                $(
+                                        "#txt_msisdn_of_subscribers_in_problematic_area")
+                                        .prop("disabled", false);
+                                $(
+                                        "#txt_three_months_average_usage_for_each_subscriber")
+                                        .prop("disabled", false);
+                                $(
+                                        "#txt_loyalty_status_for_the_subscribers_as_per_crm")
+                                        .prop("disabled", false);
+                                $("#txt_monthly_yearly_revenue_information")
+                                        .prop("disabled", false);
+                                $("#txt_serving_cell_name").prop("disabled",
+                                        false);
+                                $("#txt_average_cell_level_throughput").prop(
+                                        "disabled", false);
+                                $("#txt_individual_average_throughput").prop(
+                                        "disabled", false);
+                                $("#txt_current_package_name").prop("disabled",
+                                        false);
+                                $("#txt_apn_names_as_per_hlr").prop("disabled",
+                                        false);
+
+                            } else if (dept === "tcm_product") {
+                                $("#div_group_tcm_product").prop("disabled",
+                                        false);
+                                $("#txt_solution_type").prop("disabled", false);
+                                $("#txt_problem_component_tcm").prop(
+                                        "disabled", false);
+                                $("#txt_task_responsibility_tcm").prop(
+                                        "disabled", false);
+                                $("#txt_platform").prop("disabled", false);
+                                $("#txt_average_cell_level_throughput_tcm")
+                                        .prop("disabled", false);
+                                $("#txt_individual_average_throughput_tcm")
+                                        .prop("disabled", false);
+
+                            } else if (dept === "rp") {
+                                $("#div_group_rp").prop("disabled", false);
+                                $("#dd_rp_feedback").prop("disabled", false);
+                                $("#txt_RFS_WR_name").prop("disabled", false);
+                                $("#txt_problem_component_rp").prop("disabled",
+                                        false);
+                                $("#txt_solution_type_rp").prop("disabled",
+                                        false);
+                                $("#txt_task_responsibility_rp").prop(
+                                        "disabled", false);
+
+                            } else if (dept === "ro") {
+                                $("#div_group_ro").prop("disabled", false);
+                                $("#dd_status_ro").prop("disabled", false);
+                                $("#txt_task_responsibility_ro").prop(
+                                        "disabled", false);
+                                $("#txt_problem_component_ro").prop("disabled",
+                                        false);
+
+                            } else if (dept === "deployment") {
+                                $("#div_group_deployment").prop("disabled",
+                                        false);
+                                $("#txt_sub_task_assignment_dpm").prop(
+                                        "disabled", false);
+                                $("#dd_status_dpm").prop("disabled", false);
+                                $("#txt_task_responsibility_dpm").prop(
+                                        "disabled", false);
+
+                            } else if (dept === "regional_transformation") {
+                                $("#div_group_regional_transformation").prop(
+                                        "disabled", false);
+                                $("#dd_sub_tasks_ssignment_rt").prop(
+                                        "disabled", false);
+                                $("#txt_task_responsibility_rt").prop(
+                                        "disabled", false);
+                            }
+                        }
+
+                        //var getUrlParameter = function getUrlParameter(sParam) {
+                        function getUrlParameter(sParam) {
+
+                            alert("sParam : " + sParam);
+                            var sPageURL = decodeURIComponent(window.location.search
+                                    .substring(1)), sURLVariables = sPageURL
+                                    .split('&'), sParameterName, i;
+
+                            for (i = 0; i < sURLVariables.length; i++) {
+                                sParameterName = sURLVariables[i].split('=');
+
+                                if (sParameterName[0] === sParam) {
+                                    return sParameterName[1] === undefined ? true
+                                            : sParameterName[1];
+                                }
+                            }
+                        }
+                    });
+</script>
+
+
+
+<div id="div_group_ticket_creator">
+    <form>
+        <fieldset>
+            <legend>Ticket Creator</legend>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_customer_name">
+                    <label class="col-md-4 control-label" for="txt_customer_name">Customer
+                        Name</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d1"
+                               id="txt_customer_name" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_customer_mobile_number">
+                    <label class="col-md-4 control-label"
+                           for="txt_customer_mobile_number">Customer Mobile Number</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d2"
+                               id="txt_customer_mobile_number" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dd_employee_reference">
+                    <label class="col-md-4 control-label" for="dd_employee_reference">Employee
+                        Reference</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_employee_reference"
+                                ng-model="one.ticketdynamicfield.d3">
+                            <option></option>
+                            <option>Yes</option>
+                            <option>No</option>
+                            <option>Own</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_employee_name">
+                    <label class="col-md-4 control-label" for="txt_employee_name">Employee
+                        Name</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d4"
+                               id="txt_employee_name" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_employee_designation">
+                    <label class="col-md-4 control-label"
+                           for="txt_employee_designation"> Employee Designation</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d5"
+                               id="txt_employee_designation" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_company_name">
+                    <label class="col-md-4 control-label" for="txt_company_name">Company
+                        Name</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d6"
+                               id="txt_company_name" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_customer_contact_number">
+                    <label class="col-md-4 control-label"
+                           for="txt_customer_contact_number">Customer Contact Number</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d7"
+                               id="txt_customer_contact_number" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group"
+                     id="div_txt_alternative_contact_number">
+                    <label class="col-md-4 control-label"
+                           for="txt_alternative_contact_number">Alternative Contact
+                        Number</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d8"
+                               id="txt_alternative_contact_number" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dd_product">
+                    <label class="col-md-4 control-label" for="dd_product">Product</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_product"
+                                ng-model="one.ticketdynamicfield.d9">
+                            <option></option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_sudden_problem">
+                    <label class="col-md-4 control-label" for="txt_sudden_problem">Sudden
+                        Problem/Regular Issue?</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d10"
+                               id="txt_sudden_problem" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dt_problem_start_date">
+                    <label class="col-md-4 control-label" for="dt_problem_start_date">Problem
+                        Start Date</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d11"
+                               id="dt_problem_start_date" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_dd_circle">
+                    <label class="col-md-4 control-label" for="dd_circle">Circle</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_circle"
+                                ng-model="one.ticketdynamicfield.d12">
+                            <option></option>
+                            <option>..</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dd_subcircle">
+                    <label class="col-md-4 control-label" for="dd_subcircle">Sub
+                        Circle</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_subcircle"
+                                ng-model="one.ticketdynamicfield.d13">
+                            <option></option>
+                            <option>..</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_dd_district">
+                    <label class="col-md-4 control-label" for="dd_district">District</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_district"
+                                ng-model="one.ticketdynamicfield.d14">
+                            <option></option>
+                            <option>..</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dd_thana">
+                    <label class="col-md-4 control-label" for="dd_thana">Thana</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_thana"
+                                ng-model="one.ticketdynamicfield.d15">
+                            <option></option>
+                            <option>..</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_dd_subarea_village">
+                    <label class="col-md-4 control-label" for="dd_subarea_village">Sub
+                        Area/ Village</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_subarea_village"
+                                ng-model="one.ticketdynamicfield.d16">
+                            <option></option>
+                            <option>..</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_road">
+                    <label class="col-md-4 control-label" for="txt_road">Road
+                        No.</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d17"
+                               id="txt_road" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_house">
+                    <label class="col-md-4 control-label" for="txt_house">House
+                        No</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d18"
+                               id="txt_house" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_area_detail">
+                    <label class="col-md-4 control-label" for="txt_area_detail">Area
+                        Detail</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d19"
+                               id="txt_area_detail" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_dd_subscribers_requirement">
+                    <label class="col-md-4 control-label"
+                           for="dd_subscribers_requirement">Subscribers Requirement</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_subscribers_requirement"
+                                ng-model="one.ticketdynamicfield.d20">
+                            <option></option>
+                            <option>Voice</option>
+                            <option>Data</option>
+                            <option>Both Solution</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dd_problem_location">
+                    <label class="col-md-4 control-label" for="dd_problem_location">Problem
+                        Location</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_problem_location"
+                                ng-model="one.ticketdynamicfield.d21">
+                            <option></option>
+                            <option>Indoor</option>
+                            <option>Outdoor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group"
+                     id="div_txt_subscriber_handset_model">
+                    <label class="col-md-4 control-label"
+                           for="txt_subscriber_handset_model">Subscriber Handset
+                        Model</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d22"
+                               id="txt_subscriber_handset_model" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_website_name">
+                    <label class="col-md-4 control-label" for="txt_website_name">Web
+                        Site Name</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d23"
+                               id="txt_website_name" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_dd_handset_modem">
+                    <label class="col-md-4 control-label" for="dd_handset_modem">Handset/Modem
+                        Coverage Bar</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_handset_modem"
+                                ng-model="one.ticketdynamicfield.d24">
+                            <option></option>
+                            <option>H</option>
+                            <option>H+</option>
+                            <option>E</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div id="div_group_vocm">
+    <form>
+        <fieldset>
+            <legend>From VOCM</legend>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_problematic_floor">
+                    <label class="col-md-4 control-label" for="txt_problematic_floor">Total
+                        Number of Problematic Floor</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d25"
+                               id="txt_problematic_floor" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group"
+                     id="div_txt_problematic_floor_number">
+                    <label class="col-md-4 control-label"
+                           for="txt_problematic_floor_number">Problematic Floor
+                        Number</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d26"
+                               id="txt_problematic_floor_number" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_floor_size">
+                    <label class="col-md-4 control-label" for="txt_floor_size">Each
+                        Floor Size (in Sqft)</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d27"
+                               id="txt_floor_size" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_problematic_area">
+                    <label class="col-md-4 control-label" for="txt_problematic_area">Number
+                        of Subscriber in Problematic Area</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d28"
+                               id="txt_problematic_area" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_subscribers_problematic_area">
+                    <label class="col-md-4 control-label"
+                           for="txt_subscribers_problematic_area">MSISDN of
+                        Subscribers in Problematic Area</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d29"
+                               id="txt_subscribers_problematic_area" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_months_average">
+                    <label class="col-md-4 control-label" for="txt_months_average">Three
+                        months average usage for each Subscriber</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d30"
+                               id="txt_months_average" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_loyalty_status">
+                    <label class="col-md-4 control-label" for="txt_loyalty_status">Loyalty
+                        Status for the Subscribers as per CRM</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d31"
+                               id="txt_loyalty_status" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group"
+                     id="div_txt_monthly_yearly_revenue">
+                    <label class="col-md-4 control-label"
+                           for="txt_monthly_yearly_revenue">Monthly/ Yearly Revenue
+                        Information</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d32"
+                               id="txt_monthly_yearly_revenue" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_serving_cell_name">
+                    <label class="col-md-4 control-label" for="txt_serving_cell_name">Serving
+                        Cell Name</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d33"
+                               id="txt_serving_cell_name" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_average_cell_level">
+                    <label class="col-md-4 control-label" for="txt_average_cell_level">Average
+                        Cell Level Throughput</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d34"
+                               id="txt_average_cell_level" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_individual_average_throughput">
+                    <label class="col-md-4 control-label"
+                           for="txt_individual_average_throughput">Individual
+                        Average Throughput</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d35"
+                               id="txt_individual_average_throughput" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_current_package_name">
+                    <label class="col-md-4 control-label"
+                           for="txt_current_package_name">Current Package Name</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d36"
+                               id="txt_current_package_name" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_apn_names">
+                    <label class="col-md-4 control-label" for="txt_apn_names">APN
+                        Names (as per HLR)</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d37"
+                               id="txt_apn_names" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div id="div_group_tcm_product">
+    <form>
+        <fieldset>
+            <legend>From TCM Product</legend>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_solution_type">
+                    <label class="col-md-4 control-label" for="txt_solution_type">Solution
+                        Type</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d38"
+                               id="txt_solution_type" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_problem_component">
+                    <label class="col-md-4 control-label" for="txt_problem_component">Problem
+                        Component</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d39"
+                               id="txt_problem_component" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_task_responsibility">
+                    <label class="col-md-4 control-label"
+                           for="txt_task_responsibility">Task Responsibility</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d40"
+                               id="txt_task_responsibility" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_platform">
+                    <label class="col-md-4 control-label" for="txt_platform">Platform</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d41"
+                               id="txt_platform" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_average_cell_level_tcm">
+                    <label class="col-md-4 control-label"
+                           for="txt_average_cell_level_tcm">Average Cell Level
+                        Throughput</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d42"
+                               id="txt_average_cell_level_tcm" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_individual_average">
+                    <label class="col-md-4 control-label"
+                           for="txt_individual_average">Individual Average
+                        Throughput</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d43"
+                               id="txt_individual_average" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div id="div_group_rp">
+    <form>
+        <fieldset>
+            <legend>From RP</legend>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dd_rp_feedback">
+                    <label class="col-md-4 control-label" for="dd_rp_feedback">RP
+                        Feedback</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_rp_feedback"
+                                ng-model="one.ticketdynamicfield.d44">
+                            <option></option>
+                            <option>Need Analysis</option>
+                            <option>Plan Proposed</option>
+                            <option>Solution Provided</option>
+                            <option>No Technical Problem</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_rfs_wr_name">
+                    <label class="col-md-4 control-label" for="txt_rfs_wr_name">RFS/
+                        WR name</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d45"
+                               id="txt_rfs_wr_name" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_problem_component_rp">
+                    <label class="col-md-4 control-label"
+                           for="txt_problem_component_rp">Problem Component</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d46"
+                               id="txt_problem_component_rp" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_solution_type_rp">
+                    <label class="col-md-4 control-label" for="txt_solution_type_rp">Solution
+                        Type</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d47"
+                               id="txt_solution_type_rp" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_task_responsibility_rp">
+                    <label class="col-md-4 control-label"
+                           for="txt_task_responsibility_rp">Task Responsibility</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d48"
+                               id="txt_task_responsibility_rp" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div id="div_group_ro">
+    <form>
+        <fieldset>
+            <legend>From RO</legend>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_dd_status_ro">
+                    <label class="col-md-4 control-label" for="dd_status_ro">Status</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_status_ro"
+                                ng-model="one.ticketdynamicfield.d49">
+                            <option></option>
+                            <option>Subscriber Unreachable</option>
+                            <option>Field Data Collected</option>
+                            <option>DT Performed</option>
+                            <option>No Problem Exists</option>
+                            <option>O&M Issue Solved</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group"
+                     id="div_txt_task_responsibility_ro">
+                    <label class="col-md-4 control-label"
+                           for="txt_task_responsibility_ro">Task Responsibility</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d50"
+                               id="txt_task_responsibility_ro" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_problem_component_ro">
+                    <label class="col-md-4 control-label"
+                           for="txt_problem_component_ro">Problem Component</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d51"
+                               id="txt_problem_component_ro" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div id="div_group_deployment">
+    <form>
+        <fieldset>
+            <legend>From Deployment</legend>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_sub_task_assignment">
+                    <label class="col-md-4 control-label"
+                           for="txt_sub_task_assignment">Sub Task Assignment</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d52"
+                               id="txt_sub_task_assignment" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_dd_status_deployment">
+                    <label class="col-md-4 control-label"
+                           for="dd_status_deployment">Status</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_status_deployment"
+                                ng-model="one.ticketdynamicfield.d53">
+                            <option></option>
+                            <option>Done</option>
+                            <option>New Site Securing Challenge</option>
+                            <option>Customer Denied for Proposed Solution</option>
+                            <option>NOC not Available</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_task_responsibility_deployment">
+                    <label class="col-md-4 control-label"
+                           for="txt_task_responsibility_deployment">Task
+                        Responsibility</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d54"
+                               id="txt_task_responsibility_deployment" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div id="div_group_regional_transformation">
+    <form>
+        <fieldset>
+            <legend>From Regional Transformation</legend>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_sub_task_assignment_regional">
+                    <label class="col-md-4 control-label"
+                           for="txt_sub_task_assignment_regional">Sub Task
+                        Assignment</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d55"
+                               id="txt_sub_task_assignment_regional" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_dd_status_regional">
+                    <label class="col-md-4 control-label"
+                           for="dd_status_regional">Status</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="dd_status_regional"
+                                ng-model="one.ticketdynamicfield.d56">
+                            <option></option>
+                            <option>Done</option>
+                            <option>New Site Securing Challenge</option>
+                            <option>Customer Denied for Proposed Solution</option>
+                            <option>NOC not Available</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group"
+                     id="div_txt_task_responsibility_regional">
+                    <label class="col-md-4 control-label"
+                           for="txt_task_responsibility_regional">Task
+                        Responsibility</label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d57"
+                               id="txt_task_responsibility_regional" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

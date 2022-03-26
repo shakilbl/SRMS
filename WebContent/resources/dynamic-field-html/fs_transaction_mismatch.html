@@ -1,0 +1,152 @@
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<link href="resources/css/calendar-blue.css" rel="stylesheet" type="text/css" />
+		<script src="resources/js/jquery.dynDateTime.min.js" type="text/javascript"></script>
+        <script src="resources/js/calendar-en.min.js" type="text/javascript"></script>
+ 
+<script>
+    $(document)
+            .ready(
+                    function() {
+                        // Code By 
+                        // Shourav Sharif : 01711080718
+
+                        // Default Hide and Lock
+                        // alert("I'm Here");
+                        hideAll();
+                        disableAll();
+                        var role_current = $('#id_role_current').val();
+                        var role_done = $('#id_role_done').val();
+
+                        //test data
+                        //var role_current = '';
+                        //var role_done = 'ticket_creator';
+                        
+                        // Listing and show Done Dept
+                        // var arrayOfStrings = stringToSplit.split(separator);
+                        var role_done_list = role_done.split(',');
+                        for (i = 0; i < role_done_list.length; i++) {
+
+                            var dept = role_done_list[i];
+                            showDept(dept);
+                        }
+
+                        // show and enaable current dept
+                        showDept(role_current);
+                        enableDept(role_current);
+                        function hideAll() {
+
+                            $("#div_group_ticket_creator").hide();
+                        }
+                        
+                   	 //calender
+				  		$("#txt_due_payment_date").dynDateTime({
+			            showsTime: true,
+			            ifFormat: "%m/%d/%Y %H:%M",
+			            daFormat: "%l;%M %p, %e %m,  %Y",
+			            align: "BR",
+			            electric: true,
+			            singleClick: false,
+			            displayArea: ".siblings('.dtcDisplayArea')",
+			            button: ".next()"
+			        });
+
+                        function disableAll() {
+
+                            // Ticket creator 
+                            $("#div_group_ticket_creator").prop("disabled", true);
+                            $("#txt_utylity_partner").prop("disabled", true);
+                            $("#txt_account_number").prop("disabled", true);
+                            $("#txt_due_payment_date").prop("disabled", true);
+                            $("#txt_amount").prop("disabled", true);
+                            $("#txt_tr_id").prop("disabled", true);
+                        }
+
+
+                        function showDept(dept) {
+
+                            if (dept === "ticket_creator") {
+                                $("#div_group_ticket_creator").show();
+                            }
+                        }
+                        function enableDept(dept) {
+
+                            if (dept === "ticket_creator") {
+                                $("#div_group_ticket_creator").prop("disabled", false);
+                                $("#div_group_ticket_creator").prop("disabled", false);
+                                $("#txt_utylity_partner").prop("disabled", false);
+                                $("#txt_account_number").prop("disabled", false);
+                                $("#txt_due_payment_date").prop("disabled", false);
+                                $("#txt_amount").prop("disabled", false);
+                                $("#txt_tr_id").prop("disabled", false);
+                                
+                              //required
+                                $("#txt_utylity_partner").attr("required", "required");
+                                $("#txt_account_number").attr("required", "required");
+                                $("#txt_due_payment_date").attr("required", "required");
+                                $("#txt_amount").attr("required", "required");
+                                $("#txt_tr_id").attr("required", "required");
+        
+                            }
+                        }
+                        //var getUrlParameter = function getUrlParameter(sParam) {
+                        function getUrlParameter(sParam) {
+
+                            alert("sParam : " + sParam);
+                            var sPageURL = decodeURIComponent(window.location.search
+                                    .substring(1)), sURLVariables = sPageURL
+                                    .split('&'), sParameterName, i;
+                            for (i = 0; i < sURLVariables.length; i++) {
+                                sParameterName = sURLVariables[i].split('=');
+                                if (sParameterName[0] === sParam) {
+                                    return sParameterName[1] === undefined ? true
+                                            : sParameterName[1];
+                                }
+                            }
+                        }
+                    });
+</script>
+
+<div id="div_group_ticket_creator">
+    <form>
+        <fieldset>
+            <legend>Ticket Creator</legend>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_utylity_partner">
+                    <label class="col-md-4 control-label" for="txt_utylity_partner">Utylity/Partner<font size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d1" id="txt_utylity_partner" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_account_number">
+                    <label class="col-md-4 control-label" for="txt_account_number">Account Number<font size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d2" id="txt_account_number" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_due_payment_date">
+                    <label class="col-md-4 control-label" for="txt_due_payment_date">Due/Payment Date<font size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d3" id="txt_due_payment_date" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="div_txt_amount">
+                    <label class="col-md-4 control-label" for="txt_amount">Amount<font size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d4" id="txt_amount" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group" id="div_txt_tr_id">
+                    <label class="col-md-4 control-label" for="txt_tr_id">Tr ID<font size="5" color=red>*</font></label>
+                    <div class="col-md-8">
+                        <input type="text" ng-model="one.ticketdynamicfield.d5" id="txt_tr_id" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form> 
+</div>
